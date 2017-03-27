@@ -570,5 +570,18 @@ module.exports = function (grunt) {
         grunt.task.run('custom');
 
     });
+	
+	grunt.registerTask('mobile', 'Phaser for e-games', function() {
+
+      grunt.option('exclude', 'gamepad,keyboard,bitmaptext,retrofont,net,arcade,ninja,p2,tilemaps,particles,creature,video,weapon');
+      grunt.option('filename', 'phaser-mobile');
+      grunt.option('sourcemap', true);
+      grunt.option('copy', false);
+      grunt.option('copycustom', true);
+      grunt.option('uglify', true);
+	  grunt.option('split', false);
+      grunt.task.run('custom');
+
+    });
 
 };
