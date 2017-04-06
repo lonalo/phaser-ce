@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+
+See [README.md#change-log](README.md#change-log).
+
 ## Version 2.7.5 - 23rd March 2017
 
 * A hotfix to patch the error `this.preUpdateLifeSpan is not a function` in 2.7.4 (#72)
