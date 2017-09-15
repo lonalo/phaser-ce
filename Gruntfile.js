@@ -575,7 +575,7 @@ module.exports = function (grunt) {
       grunt.option('exclude', 'gamepad,keyboard,bitmaptext,retrofont,net,arcade,ninja,p2,tilemaps,particles,creature,video,weapon');
       grunt.option('filename', 'phaser-mobile');
       grunt.option('sourcemap', true);
-      grunt.option('copy', false);
+      grunt.option('copy', true);
       grunt.option('copycustom', true);
       grunt.option('uglify', true);
 	  grunt.option('split', false);
