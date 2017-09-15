@@ -93,7 +93,7 @@ Phaser.Group = function (game, parent, name, addToStage, enableBody, physicsBody
     this.alive = true;
 
     /**
-    * If exists is false the group will be excluded from collision checks and filters such as {@link forEachExists}. The group will not call `preUpdate` and `postUpdate` on its children and the children will not receive physics updates or camera/world boundary checks. The group will still be {@link #visible} and will still call `update` on its children.
+    * If exists is false the group will be excluded from collision checks and filters such as {@link #forEachExists}. The group will not call `preUpdate` and `postUpdate` on its children and the children will not receive physics updates or camera/world boundary checks. The group will still be {@link #visible} and will still call `update` on its children.
     * @property {boolean} exists
     * @default
     */
@@ -146,6 +146,14 @@ Phaser.Group = function (game, parent, name, addToStage, enableBody, physicsBody
     * @default
     */
     this.inputEnableChildren = false;
+
+    /**
+    * Skip children with `exists = false` in {@link #update}.
+    *
+    * @property {boolean} updateOnlyExistingChildren
+    * @default
+    */
+    this.updateOnlyExistingChildren = false;
 
     /**
     * This Signal is dispatched whenever a child of this Group emits an onInputDown signal as a result
@@ -1218,22 +1226,23 @@ Phaser.Group.prototype.setProperty = function (child, key, value, operation, for
 *
 * @method Phaser.Group#checkProperty
 * @param {any} child - The child to check the property value on.
-* @param {array} key - An array of strings that make up the property that will be set.
+* @param {string} key - The property, as a string, to be checked. For example: 'body.velocity.x'
 * @param {any} value - The value that will be checked.
-* @param {boolean} [force=false] - If `force` is true then the property will be checked on the child regardless if it already exists or not. If true and the property doesn't exist, false will be returned.
-* @return {boolean} True if the property was was equal to value, false if not.
+* @param {boolean} [force=false] - Also return false if the property is missing or undefined (regardless of the `value` argument).
+* @return {boolean} True if `child` is a child of this Group and the property was equal to value, false if not.
 */
 Phaser.Group.prototype.checkProperty = function (child, key, value, force) {
 
     if (force === undefined) { force = false; }
 
-    //  We can't force a property in and the child doesn't have it, so abort.
-    if (!Phaser.Utils.getProperty(child, key) && force)
+    if (this !== child.parent)
     {
         return false;
     }
 
-    if (Phaser.Utils.getProperty(child, key) !== value)
+    var result = Phaser.Utils.getProperty(child, key);
+
+    if (((result === undefined) && force) || (result !== value))
     {
         return false;
     }
@@ -1350,16 +1359,17 @@ Phaser.Group.prototype.setAllChildren = function (key, value, checkAlive, checkV
 };
 
 /**
-* Quickly check that the same property across all children of this group is equal to the given value.
+* Test that the same property across all children of this group is equal to the given value.
 *
 * This call doesn't descend down children, so if you have a Group inside of this group, the property will be checked on the group but not its children.
 *
 * @method Phaser.Group#checkAll
-* @param {string} key - The property, as a string, to be set. For example: 'body.velocity.x'
+* @param {string} key - The property, as a string, to be checked. For example: 'body.velocity.x'
 * @param {any} value - The value that will be checked.
 * @param {boolean} [checkAlive=false] - If set then only children with alive=true will be checked. This includes any Groups that are children.
 * @param {boolean} [checkVisible=false] - If set then only children with visible=true will be checked. This includes any Groups that are children.
-* @param {boolean} [force=false] - If `force` is true then the property will be checked on the child regardless if it already exists or not. If true and the property doesn't exist, false will be returned.
+* @param {boolean} [force=false] - Also return false if the property is missing or undefined (regardless of the `value` argument).
+* @return {boolean} - True if all eligible children have the given property value (but see `force`); otherwise false.
 */
 Phaser.Group.prototype.checkAll = function (key, value, checkAlive, checkVisible, force) {
 
@@ -1369,9 +1379,11 @@ Phaser.Group.prototype.checkAll = function (key, value, checkAlive, checkVisible
 
     for (var i = 0; i < this.children.length; i++)
     {
-        if ((!checkAlive || (checkAlive && this.children[i].alive)) && (!checkVisible || (checkVisible && this.children[i].visible)))
+        var child = this.children[i];
+
+        if ((!checkAlive || (checkAlive && child.alive)) && (!checkVisible || (checkVisible && child.visible)))
         {
-            if (!this.checkProperty(this.children[i], key, value, force))
+            if (!this.checkProperty(child, key, value, force))
             {
                 return false;
             }
@@ -1379,6 +1391,40 @@ Phaser.Group.prototype.checkAll = function (key, value, checkAlive, checkVisible
     }
 
     return true;
+
+};
+
+/**
+* Test that at least one child of this group has the given property value.
+*
+* This call doesn't descend down children, so if you have a Group inside of this group, the property will be checked on the group but not its children.
+*
+* @method Phaser.Group#checkAny
+* @param {string} key - The property, as a string, to be checked. For example: 'body.velocity.x'
+* @param {any} value - The value that will be checked.
+* @param {boolean} [checkAlive=false] - If set then only children with alive=true will be checked. This includes any Groups that are children.
+* @param {boolean} [checkVisible=false] - If set then only children with visible=true will be checked. This includes any Groups that are children.
+* @return {boolean} - True if at least one eligible child has the given property value; otherwise false.
+*/
+Phaser.Group.prototype.checkAny = function (key, value, checkAlive, checkVisible) {
+
+    if (checkAlive === undefined) { checkAlive = false; }
+    if (checkVisible === undefined) { checkVisible = false; }
+
+    for (var i = 0; i < this.children.length; i++)
+    {
+        var child = this.children[i];
+
+        if ((!checkAlive || (checkAlive && child.alive)) && (!checkVisible || (checkVisible && child.visible)))
+        {
+            if (this.checkProperty(child, key, value))
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
 
 };
 
@@ -1447,6 +1493,44 @@ Phaser.Group.prototype.multiplyAll = function (property, amount, checkAlive, che
 Phaser.Group.prototype.divideAll = function (property, amount, checkAlive, checkVisible) {
 
     this.setAll(property, amount, checkAlive, checkVisible, 4);
+
+};
+
+/**
+ * Kills all children having exists=true.
+ *
+ * @method Phaser.Group#killAll
+ */
+Phaser.Group.prototype.killAll = function () {
+
+    this.callAllExists('kill', true);
+
+};
+
+/**
+ * Revives all children having exists=false.
+ *
+ * @method Phaser.Group#reviveAll
+ */
+Phaser.Group.prototype.reviveAll = function () {
+
+    this.callAllExists('revive', false);
+
+};
+
+/**
+* Calls {@link #resetChild} on each child (or each existing child).
+*
+* @method Phaser.Group#resetAll
+* @param {number} [x] - The x coordinate to reset each child to. The value is in relation to the group.x point.
+* @param {number} [y] - The y coordinate to reset each child to. The value is in relation to the group.y point.
+* @param {string|Phaser.RenderTexture|Phaser.BitmapData|Phaser.Video|PIXI.Texture} [key] - The image or texture used by the Sprite during rendering.
+* @param {string|number} [frame] - The frame of a sprite sheet or texture atlas.
+* @param {boolean} [checkExists=false] - Reset only existing children.
+*/
+Phaser.Group.prototype.resetAll = function (x, y, key, frame, checkExists) {
+
+    this.forEach(this.resetChild, this, checkExists, x, y, key, frame);
 
 };
 
@@ -1626,9 +1710,20 @@ Phaser.Group.prototype.preUpdate = function () {
         return false;
     }
 
-    for (var i = 0; i < this.children.length; i++)
+    // This chunk is identical to Phaser.Component.Core.prototype.preUpdateChildren, which is not yet defined.
+    // This can't loop in reverse, we need the renderOrderID to be in sequence
+    var i = 0;
+
+    while (i < this.children.length)
     {
-        this.children[i].preUpdate();
+        var child = this.children[i];
+
+        child.preUpdate();
+
+        if (this === child.parent)
+        {
+            i++;
+        }
     }
 
     return true;
@@ -1637,6 +1732,9 @@ Phaser.Group.prototype.preUpdate = function () {
 
 /**
 * The core update - as called by World.
+*
+* Children with `exists = false` are updated unless {@link #updateOnlyExistingChildren} is true.
+*
 * @method Phaser.Group#update
 * @protected
 */
@@ -1647,10 +1745,15 @@ Phaser.Group.prototype.update = function () {
 
     while (i--)
     {
-        if (i >= this.children.length){
-            i = this.children.length - 1;
+        var len = this.children.length;
+
+        if (i >= len) { i = len - 1; }
+
+        var child = this.children[i];
+
+        if (!this.updateOnlyExistingChildren || child.exists) {
+            child.update();
         }
-        this.children[i].update();
     }
 
 };
@@ -2396,18 +2499,18 @@ Phaser.Group.prototype.getRandomExists = function (startIndex, endIndex) {
 *
 * You can optionally specify a matching criteria using the `property` and `value` arguments.
 *
-* For example: `getAll('exists', true)` would return only children that have their exists property set.
+* For example: `getAll('exists', true)` would return only children that have an `exists` property equal to `true`.
 *
 * Optionally you can specify a start and end index. For example if this Group had 100 children,
-* and you set `startIndex` to 0 and `endIndex` to 50, it would return a random child from only
-* the first 50 children in the Group.
+* and you set `startIndex` to 0 and `endIndex` to 50, it would return the first 50 children in the Group.
+* If `property` and `value` are also specified, only children within the given index range are searched.
 *
 * @method Phaser.Group#getAll
 * @param {string} [property] - An optional property to test against the value argument.
 * @param {any} [value] - If property is set then Child.property must strictly equal this value to be included in the results.
 * @param {integer} [startIndex=0] - The first child index to start the search from.
 * @param {integer} [endIndex] - The last child index to search up until.
-* @return {any} A random existing child of this Group.
+* @return {array} - An array containing all, some, or none of the Children of this Group.
 */
 Phaser.Group.prototype.getAll = function (property, value, startIndex, endIndex) {
 
@@ -2420,7 +2523,14 @@ Phaser.Group.prototype.getAll = function (property, value, startIndex, endIndex)
     {
         var child = this.children[i];
 
-        if (property && child[property] === value)
+        if (property)
+        {
+            if (child[property] === value)
+            {
+                output.push(child);
+            }
+        }
+        else
         {
             output.push(child);
         }
@@ -2606,6 +2716,39 @@ Phaser.Group.prototype.removeBetween = function (startIndex, endIndex, destroy, 
         i--;
     }
 
+    this.updateZ();
+
+};
+
+/**
+ * Places each child at a random position within the given Rectangle (or the {@link Phaser.World#bounds World bounds}).
+ *
+ * @method Phaser.Group#scatter
+ * @param {Phaser.Rectangle} [rect=this.game.world.bounds] - A Rectangle. If omitted {@link Phaser.World#bounds} is used.
+ * @param {boolean} [checkExists=false] - Place only children with exists=true.
+ */
+Phaser.Group.prototype.scatter = function (rect, checkExists) {
+
+    if (rect == null) { rect = this.game.world.bounds; }
+
+    this.forEach(function (child) {
+
+        child.position.set(rect.randomX, rect.randomY);
+
+    }, null, checkExists);
+
+};
+
+/**
+ * Orders this Group's children randomly.
+ *
+ * This can be more efficient than calling {@link #getRandom} repeatedly.
+ *
+ * @method Phaser.Group#shuffle
+ */
+Phaser.Group.prototype.shuffle = function () {
+
+    Phaser.ArrayUtils.shuffle(this.children);
     this.updateZ();
 
 };
@@ -2958,11 +3101,30 @@ Object.defineProperty(Phaser.Group.prototype, "bottom", {
 //  This function is set at the bottom of src/gameobjects/components/Bounds.js
 
 /**
-* A display object is any object that can be rendered in the Phaser/pixi.js scene graph.
+* A display object is any object that can be rendered in the Phaser/pixi.js scene graph:
 *
-* This includes {@link Phaser.Group} (groups are display objects!),
-* {@link Phaser.Sprite}, {@link Phaser.Button}, {@link Phaser.Text}
-* as well as {@link PIXI.DisplayObject} and all derived types.
+* - {@link PIXI.DisplayObject}
+*   - {@link PIXI.DisplayObjectContainer}
+*     - {@link Phaser.BitmapText}
+*     - {@link Phaser.Creature}
+*     - {@link Phaser.Graphics}
+*     - {@link Phaser.Group}
+*       - {@link Phaser.FlexLayer}
+*       - {@link Phaser.Particles.Arcade.Emitter}
+*       - {@link Phaser.Physics.P2.BodyDebug}
+*       - {@link Phaser.SpriteBatch}
+*       - {@link Phaser.World}
+*     - {@link Phaser.Rope}
+*     - {@link Phaser.Stage}
+*     - {@link PIXI.Sprite}
+*       - {@link Phaser.Image}
+*         - {@link Phaser.Button}
+*       - {@link Phaser.Sprite}
+*         - {@link Phaser.Bullet}
+*         - {@link Phaser.Particle}
+*         - {@link Phaser.Text}
+*         - {@link Phaser.TilemapLayer}
+*       - {@link Phaser.TileSprite}
 *
 * @typedef {object} DisplayObject
 */

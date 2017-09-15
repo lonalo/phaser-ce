@@ -113,8 +113,20 @@ Phaser.Cache = function (game) {
     this._cacheMap[Phaser.Cache.SHADER] = this._cache.shader;
     this._cacheMap[Phaser.Cache.RENDER_TEXTURE] = this._cache.renderTexture;
 
-    this.addDefaultImage();
-    this.addMissingImage();
+    /**
+     * @property {number}
+     * @private
+     */
+    this._pendingCount = 0;
+
+    /**
+    * Dispatched when the DEFAULT and MISSING images have loaded (or the {@link #READY_TIMEOUT load timeout} was exceeded).
+    *
+    * @property {Phaser.Signal} onReady
+    */
+    this.onReady = new Phaser.Signal();
+
+    this._addImages();
 
 };
 
@@ -216,11 +228,47 @@ Phaser.Cache.RENDER_TEXTURE = 15;
 Phaser.Cache.DEFAULT = null;
 
 /**
+ * Key for the DEFAULT texture.
+ * @constant
+ * @type {string}
+ */
+Phaser.Cache.DEFAULT_KEY = '__default';
+
+/**
+ * URL for the DEFAULT texture.
+ * @constant
+ * @type {string}
+ */
+Phaser.Cache.DEFAULT_SRC = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABVJREFUeF7NwIEAAAAAgKD9qdeocAMAoAABm3DkcAAAAABJRU5ErkJggg==';
+
+/**
 * The default image used for a texture when the source image is missing.
 * @constant
 * @type {PIXI.Texture}
 */
 Phaser.Cache.MISSING = null;
+
+/**
+ * Key for the MISSING texture.
+ * @constant
+ * @type {string}
+ */
+Phaser.Cache.MISSING_KEY = '__missing';
+
+/**
+ * URL for the MISSING texture.
+ * @constant
+ * @type {string}
+ */
+Phaser.Cache.MISSING_SRC = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ9JREFUeNq01ssOwyAMRFG46v//Mt1ESmgh+DFmE2GPOBARKb2NVjo+17PXLD8a1+pl5+A+wSgFygymWYHBb0FtsKhJDdZlncG2IzJ4ayoMDv20wTmSMzClEgbWYNTAkQ0Z+OJ+A/eWnAaR9+oxCF4Os0H8htsMUp+pwcgBBiMNnAwF8GqIgL2hAzaGFFgZauDPKABmowZ4GL369/0rwACp2yA/ttmvsQAAAABJRU5ErkJggg==';
+
+/**
+* The maximum amount of time (ms) to wait for the built-in DEFAULT and MISSING images to load.
+* @static
+* @type {number}
+* @default
+*/
+Phaser.Cache.READY_TIMEOUT = 1000;
 
 Phaser.Cache.prototype = {
 
@@ -288,6 +336,8 @@ Phaser.Cache.prototype = {
     * Adds an Image file into the Cache. The file must have already been loaded, typically via Phaser.Loader, but can also have been loaded into the DOM.
     * If an image already exists in the cache with the same key then it is removed and destroyed, and the new image inserted in its place.
     *
+    * If the image has not yet been fetched (successfully or not), a `console.warn` message will be displayed.
+    *
     * @method Phaser.Cache#addImage
     * @param {string} key - The key that this asset will be stored in the cache under. This should be unique within this cache.
     * @param {string} url - The URL the asset was loaded from. If the asset was not loaded externally set to `null`.
@@ -299,6 +349,11 @@ Phaser.Cache.prototype = {
         if (this.checkImageKey(key))
         {
             this.removeImage(key);
+        }
+
+        if (data.complete === false)
+        {
+            console.warn('Phaser.Cache.addImage: Image "' + key + '" hasn\'t been retrieved yet');
         }
 
         var img = {
@@ -330,6 +385,26 @@ Phaser.Cache.prototype = {
     },
 
     /**
+     * @method Phaser.Cache#addImageAsync
+     * @private
+     */
+    addImageAsync: function (key, src, callback) {
+
+        var self = this;
+        var img = new Image();
+
+        img.onload = function () {
+            callback.call(this, self.addImage(key, null, img));
+            self._removePending();
+            img.onload = null;
+        };
+
+        this._addPending();
+        img.src = src;
+
+    },
+
+    /**
     * Adds a default image to be used in special cases such as WebGL Filters.
     * It uses the special reserved key of `__default`.
     * This method is called automatically when the Cache is created.
@@ -340,17 +415,13 @@ Phaser.Cache.prototype = {
     */
     addDefaultImage: function () {
 
-        var img = new Image();
+        this.addImageAsync(Phaser.Cache.DEFAULT_KEY, Phaser.Cache.DEFAULT_SRC, function (obj) {
+            //  Because we don't want to invalidate the sprite batch for an invisible texture
+            obj.base.skipRender = true;
 
-        img.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABVJREFUeF7NwIEAAAAAgKD9qdeocAMAoAABm3DkcAAAAABJRU5ErkJggg==";
-
-        var obj = this.addImage('__default', null, img);
-
-        //  Because we don't want to invalidate the sprite batch for an invisible texture
-        obj.base.skipRender = true;
-
-        //  Make it easily available within the rest of Phaser / Pixi
-        Phaser.Cache.DEFAULT = new PIXI.Texture(obj.base);
+            //  Make it easily available within the rest of Phaser / Pixi
+            Phaser.Cache.DEFAULT = new PIXI.Texture(obj.base);
+        });
 
     },
 
@@ -365,14 +436,10 @@ Phaser.Cache.prototype = {
     */
     addMissingImage: function () {
 
-        var img = new Image();
-
-        img.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ9JREFUeNq01ssOwyAMRFG46v//Mt1ESmgh+DFmE2GPOBARKb2NVjo+17PXLD8a1+pl5+A+wSgFygymWYHBb0FtsKhJDdZlncG2IzJ4ayoMDv20wTmSMzClEgbWYNTAkQ0Z+OJ+A/eWnAaR9+oxCF4Os0H8htsMUp+pwcgBBiMNnAwF8GqIgL2hAzaGFFgZauDPKABmowZ4GL369/0rwACp2yA/ttmvsQAAAABJRU5ErkJggg==";
-
-        var obj = this.addImage('__missing', null, img);
-
-        //  Make it easily available within the rest of Phaser / Pixi
-        Phaser.Cache.MISSING = new PIXI.Texture(obj.base);
+        this.addImageAsync(Phaser.Cache.MISSING_KEY, Phaser.Cache.MISSING_SRC, function (obj) {
+            //  Make it easily available within the rest of Phaser / Pixi
+            Phaser.Cache.MISSING = new PIXI.Texture(obj.base);
+        });
 
     },
 
@@ -2106,8 +2173,105 @@ Phaser.Cache.prototype = {
             }
         }
 
+    },
+
+    /**
+    * Starts loading the DEFAULT and MISSING images.
+    *
+    * @private
+    */
+    _addImages: function () {
+
+        this._pendingCount = 0;
+
+        this.addDefaultImage();
+        this.addMissingImage();
+
+        var self = this;
+        var readyTimeout = Phaser.Cache.READY_TIMEOUT;
+
+        if (Phaser.Cache.READY_TIMEOUT > 0)
+        {
+            setTimeout(function () {
+                if (!self.isReady)
+                {
+                    console.warn('Phaser.Cache: Still waiting for images after %s ms.', readyTimeout);
+
+                    self._ready();
+                }
+            }, Phaser.Cache.READY_TIMEOUT);
+        }
+        else
+        {
+            this._ready();
+        }
+
+    },
+
+
+    /**
+    * Increments the pending count.
+    *
+    * @private
+    */
+    _addPending: function () {
+
+        this._pendingCount += 1;
+
+    },
+
+
+    /**
+    * Decrements the pending count and checks if complete.
+    *
+    * @private
+    */
+    _removePending: function () {
+
+        this._pendingCount -= 1;
+        this._checkReady();
+
+    },
+
+
+    /**
+    * Calls {@link #_ready} if no pending items remain.
+    *
+    * @private
+    */
+    _checkReady: function () {
+
+        if (this.isReady)
+        {
+            this._ready();
+        }
+
+    },
+
+
+    /**
+    * Resets pending count and triggers {@link #onReady}.
+    *
+    * @private
+    */
+    _ready: function () {
+
+        this._pendingCount = 0;
+        this.onReady.dispatch(this);
+
     }
 
 };
 
 Phaser.Cache.prototype.constructor = Phaser.Cache;
+
+/**
+* The DEFAULT and MISSING textures have loaded (or the {@link #READY_TIMEOUT load timeout} was exceeded).
+*
+* @property {boolean} Phaser.Cache#isReady
+*/
+Object.defineProperty(Phaser.Cache.prototype, 'isReady', {
+    get: function () {
+        return this._pendingCount <= 0;
+    }
+});

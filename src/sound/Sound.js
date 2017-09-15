@@ -175,6 +175,12 @@ Phaser.Sound = function (game, key, volume, loop, connect) {
     */
     this._sound = null;
 
+	/**
+    * @property {object} _globalVolume - Internal var for keeping track of global volume when using AudioTag
+    * @private
+    */
+	this._globalVolume = 1;
+
     /**
     * @property {boolean} _markedToDelete - When audio stops, disconnect Web Audio nodes.
     * @private
@@ -1074,7 +1080,8 @@ Phaser.Sound.prototype = {
 
         if (this.usingAudioTag && this._sound)
         {
-            this._sound.volume = globalVolume * this._volume;
+            this._globalVolume = globalVolume;
+            this._sound.volume = this._globalVolume * this._volume;
         }
 
     },
@@ -1212,8 +1219,8 @@ Object.defineProperty(Phaser.Sound.prototype, "volume", {
 
     set: function (value) {
 
-        //  Causes an Index size error in Firefox if you don't clamp the value
-        if (this.game.device.firefox && this.usingAudioTag)
+        //  Causes an Index size error if you don't clamp the value
+        if (this.usingAudioTag)
         {
             value = this.game.math.clamp(value, 0, 1);
         }
@@ -1233,7 +1240,7 @@ Object.defineProperty(Phaser.Sound.prototype, "volume", {
         }
         else if (this.usingAudioTag && this._sound)
         {
-            this._sound.volume = value;
+            this._sound.volume = this._globalVolume * value;
         }
     }
 

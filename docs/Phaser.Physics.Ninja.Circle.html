@@ -1,1370 +1,149 @@
 <!DOCTYPE html>
 
+
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Phaser Class: Circle</title>
-
-	<!--[if lt IE 9]>
-	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<link type="text/css" rel="stylesheet" href="styles/default.css">
-
-	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
-
-	
-	<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Phaser CE Class: Circle</title>
+	<link rel="stylesheet" href="styles/site.phaser.css?2017091210">
 </head>
 
 <body>
 
-<div class="container-fluid">
-	<div class="navbar navbar-fixed-top navbar-inverse">
-		<div style="position: absolute; width: 143px; height: 31px; right: 10px; top: 10px; z-index: 1050"><a href="http://phaser.io"><img src="img/phaser.png" border="0" /></a></div>
-		<div class="navbar-inner">
-			<a class="brand" href="index.html">Phaser API</a>
-			<ul class="nav">
 
-				
-				<li class="dropdown">
-					<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b
-						class="caret"></b></a>
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+  	<div class="navbar-header">
+  		<a class="navbar-brand" href="index.html">Phaser CE</a>
+  		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+  			<span class="icon-bar"></span>
+  			<span class="icon-bar"></span>
+  			<span class="icon-bar"></span>
+      </button>
+  	</div>
+  	<div class="navbar-collapse collapse" id="topNavigation">
+  		<ul class="nav navbar-nav">
+  			
+  			<li class="dropdown">
+  				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+  				<ul class="dropdown-menu ">
+  					<li><a href="Phaser.html">Phaser</a></li><li><a href="PhaserGlobal.html">PhaserGlobal</a></li><li><a href="PIXI.html">PIXI</a></li>
+  				</ul>
+  			</li>
+  			
+  			<li class="dropdown">
+  				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+  				<ul class="dropdown-menu ">
+  					<li><a href="CreatureShader.html">CreatureShader</a></li><li><a href="EarCut.html">EarCut</a></li><li><a href="Event.html">Event</a></li><li><a href="EventTarget.html">EventTarget</a></li><li><a href="Phaser.Animation.html">Phaser.Animation</a></li><li><a href="Phaser.AnimationManager.html">Phaser.AnimationManager</a></li><li><a href="Phaser.AnimationParser.html">Phaser.AnimationParser</a></li><li><a href="Phaser.ArraySet.html">Phaser.ArraySet</a></li><li><a href="Phaser.ArrayUtils.html">Phaser.ArrayUtils</a></li><li><a href="Phaser.AudioSprite.html">Phaser.AudioSprite</a></li><li><a href="Phaser.BitmapData.html">Phaser.BitmapData</a></li><li><a href="Phaser.BitmapText.html">Phaser.BitmapText</a></li><li><a href="Phaser.Bullet.html">Phaser.Bullet</a></li><li><a href="Phaser.Button.html">Phaser.Button</a></li><li><a href="Phaser.Cache.html">Phaser.Cache</a></li><li><a href="Phaser.Camera.html">Phaser.Camera</a></li><li><a href="Phaser.Canvas.html">Phaser.Canvas</a></li><li><a href="Phaser.CanvasPool.html">Phaser.CanvasPool</a></li><li><a href="Phaser.Circle.html">Phaser.Circle</a></li><li><a href="Phaser.Color.html">Phaser.Color</a></li><li><a href="Phaser.Component.Angle.html">Phaser.Component.Angle</a></li><li><a href="Phaser.Component.Animation.html">Phaser.Component.Animation</a></li><li><a href="Phaser.Component.AutoCull.html">Phaser.Component.AutoCull</a></li><li><a href="Phaser.Component.Bounds.html">Phaser.Component.Bounds</a></li><li><a href="Phaser.Component.BringToTop.html">Phaser.Component.BringToTop</a></li><li><a href="Phaser.Component.Core.html">Phaser.Component.Core</a></li><li><a href="Phaser.Component.Crop.html">Phaser.Component.Crop</a></li><li><a href="Phaser.Component.Delta.html">Phaser.Component.Delta</a></li><li><a href="Phaser.Component.Destroy.html">Phaser.Component.Destroy</a></li><li><a href="Phaser.Component.FixedToCamera.html">Phaser.Component.FixedToCamera</a></li><li><a href="Phaser.Component.Health.html">Phaser.Component.Health</a></li><li><a href="Phaser.Component.InCamera.html">Phaser.Component.InCamera</a></li><li><a href="Phaser.Component.InputEnabled.html">Phaser.Component.InputEnabled</a></li><li><a href="Phaser.Component.InWorld.html">Phaser.Component.InWorld</a></li><li><a href="Phaser.Component.LifeSpan.html">Phaser.Component.LifeSpan</a></li><li><a href="Phaser.Component.LoadTexture.html">Phaser.Component.LoadTexture</a></li><li><a href="Phaser.Component.Overlap.html">Phaser.Component.Overlap</a></li><li><a href="Phaser.Component.PhysicsBody.html">Phaser.Component.PhysicsBody</a></li><li><a href="Phaser.Component.Reset.html">Phaser.Component.Reset</a></li><li><a href="Phaser.Component.ScaleMinMax.html">Phaser.Component.ScaleMinMax</a></li><li><a href="Phaser.Component.Smoothed.html">Phaser.Component.Smoothed</a></li><li><a href="Phaser.Create.html">Phaser.Create</a></li><li><a href="Phaser.Creature.html">Phaser.Creature</a></li><li><a href="Phaser.Device.html">Phaser.Device</a></li><li><a href="Phaser.DeviceButton.html">Phaser.DeviceButton</a></li><li><a href="Phaser.DOM.html">Phaser.DOM</a></li><li><a href="Phaser.Easing.html">Phaser.Easing</a></li><li><a href="Phaser.Easing.Back.html">Phaser.Easing.Back</a></li><li><a href="Phaser.Easing.Bounce.html">Phaser.Easing.Bounce</a></li><li><a href="Phaser.Easing.Circular.html">Phaser.Easing.Circular</a></li><li><a href="Phaser.Easing.Cubic.html">Phaser.Easing.Cubic</a></li><li><a href="Phaser.Easing.Elastic.html">Phaser.Easing.Elastic</a></li><li><a href="Phaser.Easing.Exponential.html">Phaser.Easing.Exponential</a></li><li><a href="Phaser.Easing.Linear.html">Phaser.Easing.Linear</a></li><li><a href="Phaser.Easing.Quadratic.html">Phaser.Easing.Quadratic</a></li><li><a href="Phaser.Easing.Quartic.html">Phaser.Easing.Quartic</a></li><li><a href="Phaser.Easing.Quintic.html">Phaser.Easing.Quintic</a></li><li><a href="Phaser.Easing.Sinusoidal.html">Phaser.Easing.Sinusoidal</a></li><li><a href="Phaser.Ellipse.html">Phaser.Ellipse</a></li><li><a href="Phaser.Events.html">Phaser.Events</a></li><li><a href="Phaser.Filter.html">Phaser.Filter</a></li><li><a href="Phaser.FlexGrid.html">Phaser.FlexGrid</a></li><li><a href="Phaser.FlexLayer.html">Phaser.FlexLayer</a></li><li><a href="Phaser.Frame.html">Phaser.Frame</a></li><li><a href="Phaser.FrameData.html">Phaser.FrameData</a></li><li><a href="Phaser.Game.html">Phaser.Game</a></li><li><a href="Phaser.GameObjectCreator.html">Phaser.GameObjectCreator</a></li><li><a href="Phaser.GameObjectFactory.html">Phaser.GameObjectFactory</a></li><li><a href="Phaser.Gamepad.html">Phaser.Gamepad</a></li><li><a href="Phaser.Graphics.html">Phaser.Graphics</a></li><li><a href="Phaser.Group.html">Phaser.Group</a></li><li><a href="Phaser.Hermite.html">Phaser.Hermite</a></li><li><a href="Phaser.Image.html">Phaser.Image</a></li><li><a href="Phaser.ImageCollection.html">Phaser.ImageCollection</a></li><li><a href="Phaser.Input.html">Phaser.Input</a></li><li><a href="Phaser.InputHandler.html">Phaser.InputHandler</a></li><li><a href="Phaser.Key.html">Phaser.Key</a></li><li><a href="Phaser.Keyboard.html">Phaser.Keyboard</a></li><li><a href="Phaser.KeyCode.html">Phaser.KeyCode</a></li><li><a href="Phaser.Line.html">Phaser.Line</a></li><li><a href="Phaser.LinkedList.html">Phaser.LinkedList</a></li><li><a href="Phaser.Loader.html">Phaser.Loader</a></li><li><a href="Phaser.LoaderParser.html">Phaser.LoaderParser</a></li><li><a href="Phaser.Math.html">Phaser.Math</a></li><li><a href="Phaser.Matrix.html">Phaser.Matrix</a></li><li><a href="Phaser.Mouse.html">Phaser.Mouse</a></li><li><a href="Phaser.MSPointer.html">Phaser.MSPointer</a></li><li><a href="Phaser.Net.html">Phaser.Net</a></li><li><a href="Phaser.Particle.html">Phaser.Particle</a></li><li><a href="Phaser.Particles.html">Phaser.Particles</a></li><li><a href="Phaser.Particles.Arcade.html">Phaser.Particles.Arcade</a></li><li><a href="Phaser.Particles.Arcade.Emitter.html">Phaser.Particles.Arcade.Emitter</a></li><li><a href="Phaser.Path.html">Phaser.Path</a></li><li><a href="Phaser.PathFollower.html">Phaser.PathFollower</a></li><li><a href="Phaser.PathPoint.html">Phaser.PathPoint</a></li><li><a href="Phaser.Physics.html">Phaser.Physics</a></li><li><a href="Phaser.Physics.Arcade.html">Phaser.Physics.Arcade</a></li><li><a href="Phaser.Physics.Arcade.Body.html">Phaser.Physics.Arcade.Body</a></li><li><a href="Phaser.Physics.Arcade.TilemapCollision.html">Phaser.Physics.Arcade.TilemapCollision</a></li><li><a href="Phaser.Physics.Ninja.html">Phaser.Physics.Ninja</a></li><li><a href="Phaser.Physics.Ninja.AABB.html">Phaser.Physics.Ninja.AABB</a></li><li><a href="Phaser.Physics.Ninja.Body.html">Phaser.Physics.Ninja.Body</a></li><li><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></li><li><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></li><li><a href="Phaser.Physics.P2.html">Phaser.Physics.P2</a></li><li><a href="Phaser.Physics.P2.Body.html">Phaser.Physics.P2.Body</a></li><li><a href="Phaser.Physics.P2.BodyDebug.html">Phaser.Physics.P2.BodyDebug</a></li><li><a href="Phaser.Physics.P2.CollisionGroup.html">Phaser.Physics.P2.CollisionGroup</a></li><li><a href="Phaser.Physics.P2.ContactMaterial.html">Phaser.Physics.P2.ContactMaterial</a></li><li><a href="Phaser.Physics.P2.DistanceConstraint.html">Phaser.Physics.P2.DistanceConstraint</a></li><li><a href="Phaser.Physics.P2.FixtureList.html">Phaser.Physics.P2.FixtureList</a></li><li><a href="Phaser.Physics.P2.GearConstraint.html">Phaser.Physics.P2.GearConstraint</a></li><li><a href="Phaser.Physics.P2.InversePointProxy.html">Phaser.Physics.P2.InversePointProxy</a></li><li><a href="Phaser.Physics.P2.LockConstraint.html">Phaser.Physics.P2.LockConstraint</a></li><li><a href="Phaser.Physics.P2.Material.html">Phaser.Physics.P2.Material</a></li><li><a href="Phaser.Physics.P2.PointProxy.html">Phaser.Physics.P2.PointProxy</a></li><li><a href="Phaser.Physics.P2.PrismaticConstraint.html">Phaser.Physics.P2.PrismaticConstraint</a></li><li><a href="Phaser.Physics.P2.RevoluteConstraint.html">Phaser.Physics.P2.RevoluteConstraint</a></li><li><a href="Phaser.Physics.P2.RotationalSpring.html">Phaser.Physics.P2.RotationalSpring</a></li><li><a href="Phaser.Physics.P2.Spring.html">Phaser.Physics.P2.Spring</a></li><li><a href="Phaser.Plugin.html">Phaser.Plugin</a></li><li><a href="Phaser.Plugin.PathManager.html">Phaser.Plugin.PathManager</a></li><li><a href="Phaser.PluginManager.html">Phaser.PluginManager</a></li><li><a href="Phaser.Point.html">Phaser.Point</a></li><li><a href="Phaser.Pointer.html">Phaser.Pointer</a></li><li><a href="Phaser.PointerMode.html">Phaser.PointerMode</a></li><li><a href="Phaser.Polygon.html">Phaser.Polygon</a></li><li><a href="Phaser.QuadTree.html">Phaser.QuadTree</a></li><li><a href="Phaser.RandomDataGenerator.html">Phaser.RandomDataGenerator</a></li><li><a href="Phaser.Rectangle.html">Phaser.Rectangle</a></li><li><a href="Phaser.RenderTexture.html">Phaser.RenderTexture</a></li><li><a href="Phaser.RequestAnimationFrame.html">Phaser.RequestAnimationFrame</a></li><li><a href="Phaser.RetroFont.html">Phaser.RetroFont</a></li><li><a href="Phaser.Rope.html">Phaser.Rope</a></li><li><a href="Phaser.RoundedRectangle.html">Phaser.RoundedRectangle</a></li><li><a href="Phaser.ScaleManager.html">Phaser.ScaleManager</a></li><li><a href="Phaser.Signal.html">Phaser.Signal</a></li><li><a href="Phaser.SignalBinding.html">Phaser.SignalBinding</a></li><li><a href="Phaser.SinglePad.html">Phaser.SinglePad</a></li><li><a href="Phaser.Sound.html">Phaser.Sound</a></li><li><a href="Phaser.SoundManager.html">Phaser.SoundManager</a></li><li><a href="Phaser.Sprite.html">Phaser.Sprite</a></li><li><a href="Phaser.SpriteBatch.html">Phaser.SpriteBatch</a></li><li><a href="Phaser.Stage.html">Phaser.Stage</a></li><li><a href="Phaser.State.html">Phaser.State</a></li><li><a href="Phaser.StateManager.html">Phaser.StateManager</a></li><li><a href="Phaser.Text.html">Phaser.Text</a></li><li><a href="Phaser.Tile.html">Phaser.Tile</a></li><li><a href="Phaser.Tilemap.html">Phaser.Tilemap</a></li><li><a href="Phaser.TilemapLayer.html">Phaser.TilemapLayer</a></li><li><a href="Phaser.TilemapParser.html">Phaser.TilemapParser</a></li><li><a href="Phaser.Tileset.html">Phaser.Tileset</a></li><li><a href="Phaser.TileSprite.html">Phaser.TileSprite</a></li><li><a href="Phaser.Time.html">Phaser.Time</a></li><li><a href="Phaser.Timer.html">Phaser.Timer</a></li><li><a href="Phaser.TimerEvent.html">Phaser.TimerEvent</a></li><li><a href="Phaser.Touch.html">Phaser.Touch</a></li><li><a href="Phaser.Tween.html">Phaser.Tween</a></li><li><a href="Phaser.TweenData.html">Phaser.TweenData</a></li><li><a href="Phaser.TweenManager.html">Phaser.TweenManager</a></li><li><a href="Phaser.Utils.html">Phaser.Utils</a></li><li><a href="Phaser.Utils.Debug.html">Phaser.Utils.Debug</a></li><li><a href="Phaser.Video.html">Phaser.Video</a></li><li><a href="Phaser.Weapon.html">Phaser.Weapon</a></li><li><a href="Phaser.World.html">Phaser.World</a></li><li><a href="PIXI.BaseTexture.html">PIXI.BaseTexture</a></li><li><a href="PIXI.CanvasBuffer.html">PIXI.CanvasBuffer</a></li><li><a href="PIXI.CanvasGraphics.html">PIXI.CanvasGraphics</a></li><li><a href="PIXI.CanvasMaskManager.html">PIXI.CanvasMaskManager</a></li><li><a href="PIXI.CanvasRenderer.html">PIXI.CanvasRenderer</a></li><li><a href="PIXI.CanvasTinter.html">PIXI.CanvasTinter</a></li><li><a href="PIXI.ComplexPrimitiveShader.html">PIXI.ComplexPrimitiveShader</a></li><li><a href="PIXI.DisplayObject.html">PIXI.DisplayObject</a></li><li><a href="PIXI.DisplayObjectContainer.html">PIXI.DisplayObjectContainer</a></li><li><a href="PIXI.FilterTexture.html">PIXI.FilterTexture</a></li><li><a href="PIXI.Phaser.GraphicsData.html">PIXI.Phaser.GraphicsData</a></li><li><a href="PIXI.PixiFastShader.html">PIXI.PixiFastShader</a></li><li><a href="PIXI.PixiShader.html">PIXI.PixiShader</a></li><li><a href="PIXI.PrimitiveShader.html">PIXI.PrimitiveShader</a></li><li><a href="PIXI.Sprite.html">PIXI.Sprite</a></li><li><a href="PIXI.StripShader.html">PIXI.StripShader</a></li><li><a href="PIXI.Texture.html">PIXI.Texture</a></li><li><a href="PIXI.WebGLBlendModeManager.html">PIXI.WebGLBlendModeManager</a></li><li><a href="PIXI.WebGLFastSpriteBatch.html">PIXI.WebGLFastSpriteBatch</a></li><li><a href="PIXI.WebGLFilterManager.html">PIXI.WebGLFilterManager</a></li><li><a href="PIXI.WebGLRenderer.html">PIXI.WebGLRenderer</a></li>
+  				</ul>
+  			</li>
+  			
+  			<li class="dropdown">
+  				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+  				<ul class="dropdown-menu ">
+  					<li><a href="global.html">Global</a></li>
+  				</ul>
+  			</li>
+  			
+        <li>
+  <a href="https://github.com/photonstorm/phaser-ce/blob/master/README.md">
+    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+    README
+  </a>
+</li>
 
-					<ul class="dropdown-menu ">
-						
-						<li class="class-depth-0">
-							<a href="Phaser.html">Phaser</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="PIXI.html">PIXI</a>
-						</li>
-						
+<li>
+  <a href="https://github.com/photonstorm/phaser-ce/blob/master/CHANGELOG.md">
+    <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+    CHANGELOG
+  </a>
+</li>
 
-					</ul>
-				</li>
-				
-				<li class="dropdown">
-					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
-						class="caret"></b></a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+    Community
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="http://phaser.io">Phaser</a>
+    </li>
+    <li>
+      <a href="https://github.com/photonstorm/phaser-ce">Phaser CE on GitHub</a>
+    </li>
+    <li>
+      <a href="https://codepen.io/collection/AMbZgY/">Phaser CE Examples</a>
+    </li>
+    <li>
+      <a href="http://www.html5gamedevs.com/forum/14-phaser/">Forum</a>
+    </li>
+    <li>
+      <a href="https://twitter.com/photonstorm">Twitter</a>
+    </li>
+    <li>
+      <a href="http://phaser.io/community/slack">Slack</a>
+    </li>
+    <li>
+      <a href="http://phaser.io/community/donate">Donate</a>
+    </li>
+  </ul>
+</li>
 
-					<ul class="dropdown-menu ">
-						
-						<li class="class-depth-0">
-							<a href="EarCut.html">EarCut</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="Event.html">Event</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="EventTarget.html">EventTarget</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Animation.html">Animation</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.AnimationManager.html">AnimationManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.AnimationParser.html">AnimationParser</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.ArraySet.html">ArraySet</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.ArrayUtils.html">ArrayUtils</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.AudioSprite.html">AudioSprite</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.BitmapData.html">BitmapData</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.BitmapText.html">BitmapText</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Bullet.html">Bullet</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Button.html">Button</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Cache.html">Cache</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Camera.html">Camera</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Canvas.html">Canvas</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.CanvasPool.html">CanvasPool</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Circle.html">Circle</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Color.html">Color</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Angle.html">Angle</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Animation.html">Animation</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.AutoCull.html">AutoCull</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Bounds.html">Bounds</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.BringToTop.html">BringToTop</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Core.html">Core</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Crop.html">Crop</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Delta.html">Delta</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Destroy.html">Destroy</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.FixedToCamera.html">FixedToCamera</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Health.html">Health</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.InCamera.html">InCamera</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.InputEnabled.html">InputEnabled</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.InWorld.html">InWorld</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.LifeSpan.html">LifeSpan</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.LoadTexture.html">LoadTexture</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Overlap.html">Overlap</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.PhysicsBody.html">PhysicsBody</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Reset.html">Reset</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.ScaleMinMax.html">ScaleMinMax</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Component.Smoothed.html">Smoothed</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Create.html">Create</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Creature.html">Creature</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Device.html">Device</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.DeviceButton.html">DeviceButton</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.DOM.html">DOM</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Easing.html">Easing</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Back.html">Back</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Bounce.html">Bounce</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Circular.html">Circular</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Cubic.html">Cubic</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Elastic.html">Elastic</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Exponential.html">Exponential</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Linear.html">Linear</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Quadratic.html">Quadratic</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Quartic.html">Quartic</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Quintic.html">Quintic</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Easing.Sinusoidal.html">Sinusoidal</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Ellipse.html">Ellipse</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Events.html">Events</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Filter.html">Filter</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.FlexGrid.html">FlexGrid</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.FlexLayer.html">FlexLayer</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Frame.html">Frame</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.FrameData.html">FrameData</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Game.html">Game</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.GameObjectCreator.html">GameObjectCreator</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.GameObjectFactory.html">GameObjectFactory</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Gamepad.html">Gamepad</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Graphics.html">Graphics</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Group.html">Group</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Hermite.html">Hermite</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Image.html">Image</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.ImageCollection.html">ImageCollection</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Input.html">Input</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.InputHandler.html">InputHandler</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Key.html">Key</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Keyboard.html">Keyboard</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.KeyCode.html">KeyCode</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Line.html">Line</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.LinkedList.html">LinkedList</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Loader.html">Loader</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.LoaderParser.html">LoaderParser</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Math.html">Math</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Matrix.html">Matrix</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Mouse.html">Mouse</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.MSPointer.html">MSPointer</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Net.html">Net</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Particle.html">Particle</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Particles.html">Particles</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Particles.Arcade.html">Arcade</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Particles.Arcade.Emitter.html">Emitter</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Path.html">Path</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.PathFollower.html">PathFollower</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.PathPoint.html">PathPoint</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Physics.html">Physics</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Physics.Arcade.html">Arcade</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.Arcade.Body.html">Body</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.Arcade.TilemapCollision.html">TilemapCollision</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Physics.Ninja.html">Ninja</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.Ninja.AABB.html">AABB</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.Ninja.Body.html">Body</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.Ninja.Circle.html">Circle</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.Ninja.Tile.html">Tile</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Physics.P2.html">P2</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.Body.html">Body</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.BodyDebug.html">BodyDebug</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.CollisionGroup.html">CollisionGroup</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.ContactMaterial.html">ContactMaterial</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.DistanceConstraint.html">DistanceConstraint</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.FixtureList.html">FixtureList</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.GearConstraint.html">GearConstraint</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.InversePointProxy.html">InversePointProxy</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.LockConstraint.html">LockConstraint</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.Material.html">Material</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.PointProxy.html">PointProxy</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.PrismaticConstraint.html">PrismaticConstraint</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.RevoluteConstraint.html">RevoluteConstraint</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.RotationalSpring.html">RotationalSpring</a>
-						</li>
-						
-						<li class="class-depth-3">
-							<a href="Phaser.Physics.P2.Spring.html">Spring</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Plugin.html">Plugin</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Plugin.PathManager.html">PathManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.PluginManager.html">PluginManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Point.html">Point</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Pointer.html">Pointer</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.PointerMode.html">PointerMode</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Polygon.html">Polygon</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.QuadTree.html">QuadTree</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.RandomDataGenerator.html">RandomDataGenerator</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Rectangle.html">Rectangle</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.RenderTexture.html">RenderTexture</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.RequestAnimationFrame.html">RequestAnimationFrame</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.RetroFont.html">RetroFont</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Rope.html">Rope</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.RoundedRectangle.html">RoundedRectangle</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.ScaleManager.html">ScaleManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Signal.html">Signal</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.SignalBinding.html">SignalBinding</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.SinglePad.html">SinglePad</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Sound.html">Sound</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.SoundManager.html">SoundManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Sprite.html">Sprite</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.SpriteBatch.html">SpriteBatch</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Stage.html">Stage</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.State.html">State</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.StateManager.html">StateManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Text.html">Text</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Tile.html">Tile</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Tilemap.html">Tilemap</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.TilemapLayer.html">TilemapLayer</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.TilemapParser.html">TilemapParser</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Tileset.html">Tileset</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.TileSprite.html">TileSprite</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Time.html">Time</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Timer.html">Timer</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.TimerEvent.html">TimerEvent</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Touch.html">Touch</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Tween.html">Tween</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.TweenData.html">TweenData</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.TweenManager.html">TweenManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Utils.html">Utils</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="Phaser.Utils.Debug.html">Debug</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Video.html">Video</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.Weapon.html">Weapon</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="Phaser.World.html">World</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.BaseTexture.html">BaseTexture</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.CanvasBuffer.html">CanvasBuffer</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.CanvasGraphics.html">CanvasGraphics</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.CanvasMaskManager.html">CanvasMaskManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.CanvasRenderer.html">CanvasRenderer</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.CanvasTinter.html">CanvasTinter</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.ComplexPrimitiveShader.html">ComplexPrimitiveShader</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.DisplayObject.html">DisplayObject</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.DisplayObjectContainer.html">DisplayObjectContainer</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.FilterTexture.html">FilterTexture</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="PIXI.Phaser.GraphicsData.html">Phaser.GraphicsData</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.PIXI.html">PIXI</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.PixiFastShader.html">PixiFastShader</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.PixiShader.html">PixiShader</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.PrimitiveShader.html">PrimitiveShader</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.Sprite.html">Sprite</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.StripShader.html">StripShader</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.Texture.html">Texture</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.WebGLBlendModeManager.html">WebGLBlendModeManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.WebGLFastSpriteBatch.html">WebGLFastSpriteBatch</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.WebGLFilterManager.html">WebGLFilterManager</a>
-						</li>
-						
-						<li class="class-depth-1">
-							<a href="PIXI.WebGLRenderer.html">WebGLRenderer</a>
-						</li>
-						
+  		</ul>
+          
+  	</div>
+  </div>
+</div>
 
-					</ul>
-				</li>
-				
-				<li class="dropdown">
-					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
-						class="caret"></b></a>
 
-					<ul class="dropdown-menu ">
-						
-						<li class="class-depth-0">
-							<a href="global.html#ANGLE_DOWN">ANGLE_DOWN</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ANGLE_LEFT">ANGLE_LEFT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ANGLE_NORTH_EAST">ANGLE_NORTH_EAST</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ANGLE_NORTH_WEST">ANGLE_NORTH_WEST</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ANGLE_RIGHT">ANGLE_RIGHT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ANGLE_SOUTH_EAST">ANGLE_SOUTH_EAST</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ANGLE_SOUTH_WEST">ANGLE_SOUTH_WEST</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ANGLE_UP">ANGLE_UP</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#arc">arc</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#AUTO">AUTO</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#beginFill">beginFill</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#bezierCurveTo">bezierCurveTo</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#BITMAPDATA">BITMAPDATA</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#BITMAPTEXT">BITMAPTEXT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#blendModes">blendModes</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#BOTTOM_CENTER">BOTTOM_CENTER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#BOTTOM_LEFT">BOTTOM_LEFT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#BOTTOM_RIGHT">BOTTOM_RIGHT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#BUTTON">BUTTON</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#CANVAS">CANVAS</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#CANVAS_FILTER">CANVAS_FILTER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#CENTER">CENTER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#CIRCLE">CIRCLE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#clear">clear</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#CREATURE">CREATURE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#destroyCachedSprite">destroyCachedSprite</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#displayList">displayList</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#DOWN">DOWN</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#drawCircle">drawCircle</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#drawEllipse">drawEllipse</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#drawPolygon">drawPolygon</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#drawRect">drawRect</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#drawRoundedRect">drawRoundedRect</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#drawShape">drawShape</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ELLIPSE">ELLIPSE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#emit">emit</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#EMITTER">EMITTER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#endFill">endFill</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#GAMES">GAMES</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#generateTexture">generateTexture</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#getBounds">getBounds</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#getLocalBounds">getLocalBounds</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#GRAPHICS">GRAPHICS</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#GROUP">GROUP</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#HEADLESS">HEADLESS</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#HORIZONTAL">HORIZONTAL</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#IMAGE">IMAGE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#LANDSCAPE">LANDSCAPE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#LEFT">LEFT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#LEFT_BOTTOM">LEFT_BOTTOM</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#LEFT_CENTER">LEFT_CENTER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#LEFT_TOP">LEFT_TOP</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#LINE">LINE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#lineStyle">lineStyle</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#lineTo">lineTo</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#listeners">listeners</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#MATRIX">MATRIX</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#mixin">mixin</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#moveTo">moveTo</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#NONE">NONE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#off">off</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#on">on</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#once">once</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#PENDING_ATLAS">PENDING_ATLAS</a>
-						</li>
-						
-						<li class="class-depth-2">
-							<a href="global.html#Phaser.Path#numPointsreturn%257Bnumber%257DThetotalnumberofPathPointsinthisPath.">Phaser.Path#numPointsreturn {number} The total number of PathPoints in this Path.</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#POINT">POINT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#POINTER">POINTER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#POLYGON">POLYGON</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#PORTRAIT">PORTRAIT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#quadraticCurveTo">quadraticCurveTo</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#RECTANGLE">RECTANGLE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#removeAllListeners">removeAllListeners</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#RENDERTEXTURE">RENDERTEXTURE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#RETROFONT">RETROFONT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#RIGHT">RIGHT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#RIGHT_BOTTOM">RIGHT_BOTTOM</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#RIGHT_CENTER">RIGHT_CENTER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#RIGHT_TOP">RIGHT_TOP</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ROPE">ROPE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#ROUNDEDRECTANGLE">ROUNDEDRECTANGLE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#scaleModes">scaleModes</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#SPRITE">SPRITE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#SPRITEBATCH">SPRITEBATCH</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#stopImmediatePropagation">stopImmediatePropagation</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#stopPropagation">stopPropagation</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#TEXT">TEXT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#TILEMAP">TILEMAP</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#TILEMAPLAYER">TILEMAPLAYER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#TILESPRITE">TILESPRITE</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#TOP_CENTER">TOP_CENTER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#TOP_LEFT">TOP_LEFT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#TOP_RIGHT">TOP_RIGHT</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#UP">UP</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#updateLocalBounds">updateLocalBounds</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#VERSION">VERSION</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#VERTICAL">VERTICAL</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#VIDEO">VIDEO</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#WEBGL">WEBGL</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#WEBGL_FILTER">WEBGL_FILTER</a>
-						</li>
-						
-						<li class="class-depth-0">
-							<a href="global.html#WEBGL_MULTI">WEBGL_MULTI</a>
-						</li>
-						
-
-					</ul>
-				</li>
-				
-
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Core<b class="caret"></b></a>
-					<ul class="dropdown-menu ">
-						<li class="class-depth-1"><a href="Phaser.Game.html">Game</a></li>
-						<li class="class-depth-1"><a href="Phaser.Group.html">Group</a></li>
-						<li class="class-depth-1"><a href="Phaser.World.html">World</a></li>
-						<li class="class-depth-1"><a href="Phaser.Loader.html">Loader</a></li>
-						<li class="class-depth-1"><a href="Phaser.Cache.html">Cache</a></li>
-						<li class="class-depth-1"><a href="Phaser.Time.html">Time</a></li>
-						<li class="class-depth-1"><a href="Phaser.Camera.html">Camera</a></li>
-						<li class="class-depth-1"><a href="Phaser.StateManager.html">State Manager</a></li>
-						<li class="class-depth-1"><a href="Phaser.TweenManager.html">Tween Manager</a></li>
-						<li class="class-depth-1"><a href="Phaser.SoundManager.html">Sound Manager</a></li>
-						<li class="class-depth-1"><a href="Phaser.Input.html">Input Manager</a></li>
-						<li class="class-depth-1"><a href="Phaser.ScaleManager.html">Scale Manager</a></li>
-					</ul>
-				</li>
-
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Game Objects<b class="caret"></b></a>
-					<ul class="dropdown-menu ">
-						<li class="class-depth-1"><a href="Phaser.GameObjectFactory.html">Factory (game.add)</a></li>
-						<li class="class-depth-1"><a href="Phaser.GameObjectCreator.html">Creator (game.make)</a></li>
-						<li class="class-depth-1"><a href="Phaser.Sprite.html">Sprite</a></li>
-						<li class="class-depth-1"><a href="Phaser.Image.html">Image</a></li>
-						<li class="class-depth-1"><a href="Phaser.Sound.html">Sound</a></li>
-						<li class="class-depth-1"><a href="Phaser.Video.html">Video</a></li>
-						<li class="class-depth-1"><a href="Phaser.Particles.Arcade.Emitter.html">Particle Emitter</a></li>
-						<li class="class-depth-1"><a href="Phaser.Particle.html">Particle</a></li>
-						<li class="class-depth-1"><a href="Phaser.Text.html">Text</a></li>
-						<li class="class-depth-1"><a href="Phaser.Tween.html">Tween</a></li>
-						<li class="class-depth-1"><a href="Phaser.BitmapText.html">BitmapText</a></li>
-						<li class="class-depth-1"><a href="Phaser.Tilemap.html">Tilemap</a></li>
-						<li class="class-depth-1"><a href="Phaser.BitmapData.html">BitmapData</a></li>
-						<li class="class-depth-1"><a href="Phaser.RetroFont.html">RetroFont</a></li>
-						<li class="class-depth-1"><a href="Phaser.Button.html">Button</a></li>
-						<li class="class-depth-1"><a href="Phaser.Animation.html">Animation</a></li>
-						<li class="class-depth-1"><a href="Phaser.Graphics.html">Graphics</a></li>
-						<li class="class-depth-1"><a href="Phaser.RenderTexture.html">RenderTexture</a></li>
-						<li class="class-depth-1"><a href="Phaser.TileSprite.html">TileSprite</a></li>
-					</ul>
-				</li>
-
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Geometry<b class="caret"></b></a>
-					<ul class="dropdown-menu ">
-						<li class="class-depth-1"><a href="Phaser.Circle.html">Circle</a></li>
-						<li class="class-depth-1"><a href="Phaser.Ellipse.html">Ellipse</a></li>
-						<li class="class-depth-1"><a href="Phaser.Line.html">Line</a></li>
-						<li class="class-depth-1"><a href="Phaser.Matrix.html">Matrix</a></li>
-						<li class="class-depth-1"><a href="Phaser.Point.html">Point</a></li>
-						<li class="class-depth-1"><a href="Phaser.Polygon.html">Polygon</a></li>
-						<li class="class-depth-1"><a href="Phaser.Rectangle.html">Rectangle</a></li>
-						<li class="class-depth-1"><a href="Phaser.RoundedRectangle.html">Rounded Rectangle</a></li>
-					</ul>
-				</li>
-
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Physics<b class="caret"></b></a>
-					<ul class="dropdown-menu ">
-						<li class="class-depth-1"><a href="Phaser.Physics.Arcade.html">Arcade Physics</a></li>
-						<li class="class-depth-2"><a href="Phaser.Physics.Arcade.Body.html">Body</a></li>
-						<li class="class-depth-2"><a href="Phaser.Weapon.html">Weapon</a></li>
-						<li class="class-depth-1"><a href="Phaser.Physics.P2.html">P2 Physics</a></li>
-						<li class="class-depth-2"><a href="Phaser.Physics.P2.Body.html">Body</a></li>
-						<li class="class-depth-2"><a href="Phaser.Physics.P2.Spring.html">Spring</a></li>
-						<li class="class-depth-2"><a href="Phaser.Physics.P2.CollisionGroup.html">CollisionGroup</a></li>
-						<li class="class-depth-2"><a href="Phaser.Physics.P2.ContactMaterial.html">ContactMaterial</a></li>
-						<li class="class-depth-1"><a href="Phaser.Physics.Ninja.html">Ninja Physics</a></li>
-						<li class="class-depth-2"><a href="Phaser.Physics.Body.html">Body</a></li>
-					</ul>
-				</li>
-
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Input<b class="caret"></b></a>
-					<ul class="dropdown-menu ">
-						<li class="class-depth-1"><a href="Phaser.InputHandler.html">Input Handler</a></li>
-						<li class="class-depth-1"><a href="Phaser.Pointer.html">Pointer</a></li>
-						<li class="class-depth-1"><a href="Phaser.DeviceButton.html">Device Button</a></li>
-						<li class="class-depth-1"><a href="Phaser.Mouse.html">Mouse</a></li>
-						<li class="class-depth-1"><a href="Phaser.Keyboard.html">Keyboard</a></li>
-						<li class="class-depth-1"><a href="Phaser.Key.html">Key</a></li>
-						<li class="class-depth-1"><a href="Phaser.KeyCode.html">Key Codes</a></li>
-						<li class="class-depth-1"><a href="Phaser.Gamepad.html">Gamepad</a></li>
-					</ul>
-				</li>
-
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Community<b class="caret"></b></a>
-					<ul class="dropdown-menu ">
-						<li class="class-depth-1"><a href="http://phaser.io">Phaser Web Site</a></li>
-						<li class="class-depth-1"><a href="https://github.com/photonstorm/phaser">Phaser Github</a></li>
-						<li class="class-depth-1"><a href="http://phaser.io/examples">Phaser Examples</a></li>
-						<li class="class-depth-1"><a href="https://github.com/photonstorm/phaser-plugins">Phaser Plugins</a></li>
-						<li class="class-depth-1"><a href="http://www.html5gamedevs.com/forum/14-phaser/">Forum</a></li>
-						<li class="class-depth-1"><a href="http://stackoverflow.com/questions/tagged/phaser-framework">Stack Overflow</a></li>
-						<li class="class-depth-1"><a href="http://phaser.io/learn">Tutorials</a></li>
-						<li class="class-depth-1"><a href="http://phaser.io/community/newsletter">Newsletter</a></li>
-						<li class="class-depth-1"><a href="http://phaser.io/community/twitter">Twitter</a></li>
-						<li class="class-depth-1"><a href="http://phaser.io/community/slack">Slack</a></li>
-						<li class="class-depth-1"><a href="http://phaser.io/community/donate">Donate</a></li>
-						<li class="class-depth-1"><a href="https://www.codeandweb.com/texturepacker/phaser">Texture Packer</a></li>
-					</ul>
-				</li>
-
-			</ul>
-		</div>
-	</div>
-
-	<div class="row-fluid">
-
+<div class="container-fluid" id="toc-content">
+	<div class="row">
 		
-		<div class="span8">
-			
-				<div id="main">
-					
+	  <div class="col-md-9 col-md-offset-3">
+		
+			<div id="main">
 
-
-	<!--<h1 class="page-title">Class: Circle</h1>-->
+	<h1 class="page-title">Class: Circle</h1>
 <section>
 
 <header>
-    <h2>
-        <span class="ancestors"><a href="Phaser.html">Phaser</a><a href="Phaser.Physics.html">.Physics</a><a href="Phaser.Physics.Ninja.html">.Ninja</a>.</span>
     
-    Circle
-    </h2>
+        <h2>
+            <span class="ancestors"><a href="Phaser.html">Phaser</a><a href="Phaser.Physics.html">.Physics</a><a href="Phaser.Physics.Ninja.html">.Ninja</a>.</span>
+        
+        Circle
+        </h2>
+        
     
 </header>
+
 
 <article>
     <div class="container-overview">
     
-
-    
         
 <dt>
-    <h4 class="name "
-        id="Circle"><span class="type-signature"></span>new Circle<span class="signature">(body, x, y, radius)</span><span class="type-signature"></span></h4>
-    
+    <h4 class="name" id="Circle">
+      <span class="type-signature"></span>new Circle(body, x, y, radius)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
-        <p>Ninja Physics Circle constructor.<br>Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.</p>
+    <div class="description method-description">
+        <p>Ninja Physics Circle constructor.
+Note: This class could be massively optimised and reduced in size. I leave that challenge up to you.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -1372,23 +151,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1401,6 +180,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Body.html">Phaser.Physics.Ninja.Body</a></span>
 
 
+
             
             </td>
 
@@ -1408,10 +188,10 @@
 
             
 
-            <td class="description last"><p>The body that owns this shape.</p></td>
+            <td class="description param-description last"><p>The body that owns this shape.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1424,6 +204,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -1431,10 +212,10 @@
 
             
 
-            <td class="description last"><p>The x coordinate to create this shape at.</p></td>
+            <td class="description param-description last"><p>The x coordinate to create this shape at.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1447,6 +228,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -1454,10 +236,10 @@
 
             
 
-            <td class="description last"><p>The y coordinate to create this shape at.</p></td>
+            <td class="description param-description last"><p>The y coordinate to create this shape at.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1470,6 +252,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -1477,22 +260,24 @@
 
             
 
-            <td class="description last"><p>The radius of this Circle.</p></td>
+            <td class="description param-description last"><p>The radius of this Circle.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1502,34 +287,45 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L19" title="Circle on line 19 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 19</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-19">line 19</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+
     
 </dd>
 
@@ -1551,46 +347,43 @@
 
         <dl>
             
-<dt>
-    <h4 class="name "
-        id="body"><span class="type-signature"></span>body<span class="type-signature"></span></h4>
-    
+<dt class="name" id="body">
+    <h4 id="body"><span class="type-signature"></span>body<span class="type-signature"></span></h4>
+
     
 </dt>
 <dd>
     
 
     
-    
-    
 
     
 <dl class="details">
     
 
-        <h5 class="subsection-title">Properties:</h5>
+    <h5 class="subsection-title">Properties:</h5>
 
-        <dl>
+    <dl>
 
 <table class="props table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1603,6 +396,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Body.html">Phaser.Physics.Ninja.Body</a></span>
 
 
+
             
             </td>
 
@@ -1610,17 +404,21 @@
 
             
 
-            <td class="description last"><p>A reference to the body that owns this shape.</p></td>
+            <td class="description prop-description last"><p>A reference to the body that owns this shape.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 </dl>
 
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1630,53 +428,72 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L24" title="body on line 24 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 24</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-24">line 24</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="circleTileProjections"><span class="type-signature"></span>circleTileProjections<span class="type-signature"> :object</span></h4>
-    
+<dt class="name" id="circleTileProjections">
+    <h4 id="circleTileProjections"><span class="type-signature"></span>circleTileProjections<span class="type-signature"> :object</span></h4>
+
     
 </dt>
 <dd>
     
-
-    
-    <div class="description">
+    <div class="description members-description">
         <p>All of the collision response handlers.</p>
     </div>
     
+
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
     
 
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1686,53 +503,72 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L90" title="circleTileProjections on line 90 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 90</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-90">line 90</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="height"><span class="type-signature">&lt;readonly> </span>height<span class="type-signature"> :number</span></h4>
-    
+<dt class="name" id="height">
+    <h4 id="height"><span class="type-signature">&lt;readonly> </span>height<span class="type-signature"> :number</span></h4>
+
     
 </dt>
 <dd>
     
-
-    
-    <div class="description">
+    <div class="description members-description">
         <p>The height.</p>
     </div>
     
+
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
     
 
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1742,53 +578,72 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L68" title="height on line 68 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 68</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-68">line 68</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="oldpos"><span class="type-signature"></span>oldpos<span class="type-signature"> :<a href="Phaser.Point.html">Phaser.Point</a></span></h4>
-    
+<dt class="name" id="oldpos">
+    <h4 id="oldpos"><span class="type-signature"></span>oldpos<span class="type-signature"> :<a href="Phaser.Point.html">Phaser.Point</a></span></h4>
+
     
 </dt>
 <dd>
     
-
-    
-    <div class="description">
+    <div class="description members-description">
         <p>The position of this object in the previous update.</p>
     </div>
     
+
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Phaser.Point.html">Phaser.Point</a></span>
+
+
+
+            </li>
+        </ul>
     
 
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1798,53 +653,72 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L39" title="oldpos on line 39 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 39</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-39">line 39</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="pos"><span class="type-signature"></span>pos<span class="type-signature"> :<a href="Phaser.Point.html">Phaser.Point</a></span></h4>
-    
+<dt class="name" id="pos">
+    <h4 id="pos"><span class="type-signature"></span>pos<span class="type-signature"> :<a href="Phaser.Point.html">Phaser.Point</a></span></h4>
+
     
 </dt>
 <dd>
     
-
-    
-    <div class="description">
+    <div class="description members-description">
         <p>The position of this object.</p>
     </div>
     
+
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Phaser.Point.html">Phaser.Point</a></span>
+
+
+
+            </li>
+        </ul>
     
 
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1854,53 +728,72 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L34" title="pos on line 34 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 34</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-34">line 34</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="radius"><span class="type-signature"></span>radius<span class="type-signature"> :number</span></h4>
-    
+<dt class="name" id="radius">
+    <h4 id="radius"><span class="type-signature"></span>radius<span class="type-signature"> :number</span></h4>
+
     
 </dt>
 <dd>
     
-
-    
-    <div class="description">
+    <div class="description members-description">
         <p>The radius of this circle shape.</p>
     </div>
     
+
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
     
 
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1910,53 +803,72 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L44" title="radius on line 44 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 44</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-44">line 44</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="system"><span class="type-signature"></span>system<span class="type-signature"> :<a href="Phaser.Physics.Ninja.html">Phaser.Physics.Ninja</a></span></h4>
-    
+<dt class="name" id="system">
+    <h4 id="system"><span class="type-signature"></span>system<span class="type-signature"> :<a href="Phaser.Physics.Ninja.html">Phaser.Physics.Ninja</a></span></h4>
+
     
 </dt>
 <dd>
     
-
-    
-    <div class="description">
+    <div class="description members-description">
         <p>A reference to the physics system.</p>
     </div>
     
+
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Phaser.Physics.Ninja.html">Phaser.Physics.Ninja</a></span>
+
+
+
+            </li>
+        </ul>
     
 
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -1966,53 +878,72 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L29" title="system on line 29 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 29</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-29">line 29</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="velocity"><span class="type-signature"></span>velocity<span class="type-signature"> :<a href="Phaser.Point.html">Phaser.Point</a></span></h4>
-    
+<dt class="name" id="velocity">
+    <h4 id="velocity"><span class="type-signature"></span>velocity<span class="type-signature"> :<a href="Phaser.Point.html">Phaser.Point</a></span></h4>
+
     
 </dt>
 <dd>
     
-
-    
-    <div class="description">
+    <div class="description members-description">
         <p>The velocity of this object.</p>
     </div>
     
+
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Phaser.Point.html">Phaser.Point</a></span>
+
+
+
+            </li>
+        </ul>
     
 
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2022,53 +953,72 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L85" title="velocity on line 85 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 85</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-85">line 85</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="width"><span class="type-signature">&lt;readonly> </span>width<span class="type-signature"> :number</span></h4>
-    
+<dt class="name" id="width">
+    <h4 id="width"><span class="type-signature">&lt;readonly> </span>width<span class="type-signature"> :number</span></h4>
+
     
 </dt>
 <dd>
     
-
-    
-    <div class="description">
+    <div class="description members-description">
         <p>The width.</p>
     </div>
     
+
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
     
 
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2078,53 +1028,72 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L62" title="width on line 62 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 62</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-62">line 62</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="xw"><span class="type-signature">&lt;readonly> </span>xw<span class="type-signature"> :number</span></h4>
-    
+<dt class="name" id="xw">
+    <h4 id="xw"><span class="type-signature">&lt;readonly> </span>xw<span class="type-signature"> :number</span></h4>
+
     
 </dt>
 <dd>
     
-
-    
-    <div class="description">
+    <div class="description members-description">
         <p>Half the width.</p>
     </div>
     
+
     
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
     
 
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2134,71 +1103,75 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L50" title="xw on line 50 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 50</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-50">line 50</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
         
             
-<dt>
-    <h4 class="name "
-        id="yw"><span class="type-signature">&lt;readonly> </span>yw<span class="type-signature"></span></h4>
-    
+<dt class="name" id="yw">
+    <h4 id="yw"><span class="type-signature">&lt;readonly> </span>yw<span class="type-signature"></span></h4>
+
     
 </dt>
 <dd>
     
 
     
-    
-    
 
     
 <dl class="details">
     
 
-        <h5 class="subsection-title">Properties:</h5>
+    <h5 class="subsection-title">Properties:</h5>
 
-        <dl>
+    <dl>
 
 <table class="props table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -2211,6 +1184,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2218,17 +1192,21 @@
 
             
 
-            <td class="description last"><p>Half the height.</p></td>
+            <td class="description prop-description last"><p>Half the height.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 </dl>
 
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2238,26 +1216,33 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L56" title="yw on line 56 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 56</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-56">line 56</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
-    
+
     
 </dd>
 
@@ -2270,23 +1255,24 @@
         <dl>
             
 <dt>
-    <h4 class="name "
-        id="collideCircleVsTile"><span class="type-signature"></span>collideCircleVsTile<span class="signature">(t)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
-    
+    <h4 class="name" id="collideCircleVsTile">
+      <span class="type-signature"></span>collideCircleVsTile(t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Collides this Circle with a Tile.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -2294,23 +1280,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -2323,6 +1309,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -2330,42 +1317,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">boolean</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>True if they collide, otherwise false.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2375,67 +1344,105 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L248" title="collideCircleVsTile on line 248 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 248</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-248">line 248</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>True if they collide, otherwise false.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="collideWorldBounds"><span class="type-signature"></span>collideWorldBounds<span class="signature">()</span><span class="type-signature"></span></h4>
-    
+    <h4 class="name" id="collideWorldBounds">
+      <span class="type-signature"></span>collideWorldBounds()
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Collides this Circle against the world bounds.</p>
     </div>
     
 
     
-    
-    
-    
+
     
 
     
     
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2445,67 +1452,81 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L207" title="collideWorldBounds on line 207 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 207</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-207">line 207</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="destroy"><span class="type-signature"></span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
-    
+    <h4 class="name" id="destroy">
+      <span class="type-signature"></span>destroy()
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Destroys this Circle's reference to Body and System</p>
     </div>
     
 
     
-    
-    
-    
+
     
 
     
     
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2515,67 +1536,81 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L2612" title="destroy on line 2612 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 2612</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-2612">line 2612</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="integrate"><span class="type-signature"></span>integrate<span class="signature">()</span><span class="type-signature"></span></h4>
-    
+    <h4 class="name" id="integrate">
+      <span class="type-signature"></span>integrate()
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Updates this Circles position.</p>
     </div>
     
 
     
-    
-    
-    
+
     
 
     
     
+
     
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2585,57 +1620,69 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L112" title="integrate on line 112 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 112</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-112">line 112</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="projCircle_22DegB"><span class="type-signature"></span>projCircle_22DegB<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="projCircle_22DegB">
+      <span class="type-signature"></span>projCircle_22DegB(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves 22 Degree tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -2643,23 +1690,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -2672,6 +1719,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2679,10 +1727,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2695,6 +1743,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2702,10 +1751,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2718,6 +1767,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2725,10 +1775,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2741,6 +1791,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2748,10 +1799,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2764,6 +1815,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -2771,10 +1823,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2787,6 +1839,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -2794,42 +1847,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -2839,57 +1874,93 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L1719" title="projCircle_22DegB on line 1719 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 1719</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-1719">line 1719</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="projCircle_22DegS"><span class="type-signature"></span>projCircle_22DegS<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="projCircle_22DegS">
+      <span class="type-signature"></span>projCircle_22DegS(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves 22 Degree tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -2897,23 +1968,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -2926,6 +1997,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2933,10 +2005,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2949,6 +2021,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2956,10 +2029,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2972,6 +2045,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2979,10 +2053,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2995,6 +2069,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3002,10 +2077,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3018,6 +2093,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -3025,10 +2101,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3041,6 +2117,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -3048,42 +2125,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -3093,57 +2152,93 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L1427" title="projCircle_22DegS on line 1427 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 1427</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-1427">line 1427</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="projCircle_45Deg"><span class="type-signature"></span>projCircle_45Deg<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="projCircle_45Deg">
+      <span class="type-signature"></span>projCircle_45Deg(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves 45 Degree tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -3151,23 +2246,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -3180,6 +2275,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3187,10 +2283,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3203,6 +2299,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3210,10 +2307,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3226,6 +2323,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3233,10 +2331,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3249,6 +2347,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3256,10 +2355,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3272,6 +2371,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -3279,10 +2379,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3295,6 +2395,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -3302,42 +2403,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -3347,57 +2430,93 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L447" title="projCircle_45Deg on line 447 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 447</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-447">line 447</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="projCircle_67DegB"><span class="type-signature"></span>projCircle_67DegB<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="projCircle_67DegB">
+      <span class="type-signature"></span>projCircle_67DegB(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves 67 Degree tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -3405,23 +2524,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -3434,6 +2553,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3441,10 +2561,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3457,6 +2577,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3464,10 +2585,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3480,6 +2601,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3487,10 +2609,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3503,6 +2625,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3510,10 +2633,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3526,6 +2649,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -3533,10 +2657,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3549,6 +2673,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -3556,42 +2681,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -3601,57 +2708,93 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L2307" title="projCircle_67DegB on line 2307 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 2307</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-2307">line 2307</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="projCircle_67DegS"><span class="type-signature"></span>projCircle_67DegS<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="projCircle_67DegS">
+      <span class="type-signature"></span>projCircle_67DegS(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves 67 Degree tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -3659,23 +2802,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -3688,6 +2831,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3695,10 +2839,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3711,6 +2855,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3718,10 +2863,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3734,6 +2879,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3741,10 +2887,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3757,6 +2903,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3764,10 +2911,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3780,6 +2927,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -3787,10 +2935,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3803,6 +2951,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -3810,42 +2959,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -3855,57 +2986,93 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L2022" title="projCircle_67DegS on line 2022 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 2022</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-2022">line 2022</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="projCircle_Concave"><span class="type-signature"></span>projCircle_Concave<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="projCircle_Concave">
+      <span class="type-signature"></span>projCircle_Concave(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves Concave tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -3913,23 +3080,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -3942,6 +3109,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3949,10 +3117,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3965,6 +3133,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3972,10 +3141,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -3988,6 +3157,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3995,10 +3165,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4011,6 +3181,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4018,10 +3189,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4034,6 +3205,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -4041,10 +3213,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4057,6 +3229,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -4064,42 +3237,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -4109,57 +3264,93 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L717" title="projCircle_Concave on line 717 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 717</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-717">line 717</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="projCircle_Convex"><span class="type-signature"></span>projCircle_Convex<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="projCircle_Convex">
+      <span class="type-signature"></span>projCircle_Convex(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves Convex tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -4167,23 +3358,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -4196,6 +3387,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4203,10 +3395,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4219,6 +3411,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4226,10 +3419,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4242,6 +3435,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4249,10 +3443,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4265,6 +3459,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4272,10 +3467,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4288,6 +3483,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -4295,10 +3491,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4311,6 +3507,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -4318,42 +3515,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -4363,57 +3542,93 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L951" title="projCircle_Convex on line 951 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 951</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-951">line 951</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="projCircle_Full"><span class="type-signature"></span>projCircle_Full<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="projCircle_Full">
+      <span class="type-signature"></span>projCircle_Full(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves Full tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -4421,23 +3636,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -4450,6 +3665,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4457,10 +3673,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4473,6 +3689,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4480,10 +3697,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4496,6 +3713,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4503,10 +3721,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4519,6 +3737,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4526,10 +3745,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4542,6 +3761,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -4549,10 +3769,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4565,6 +3785,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -4572,42 +3793,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -4617,57 +3820,93 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L335" title="projCircle_Full on line 335 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 335</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-335">line 335</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="projCircle_Half"><span class="type-signature"></span>projCircle_Half<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="projCircle_Half">
+      <span class="type-signature"></span>projCircle_Half(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves Half tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -4675,23 +3914,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -4704,6 +3943,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4711,10 +3951,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4727,6 +3967,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4734,10 +3975,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4750,6 +3991,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4757,10 +3999,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4773,6 +4015,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4780,10 +4023,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4796,6 +4039,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -4803,10 +4047,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4819,6 +4063,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -4826,42 +4071,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -4871,57 +4098,93 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L1193" title="projCircle_Half on line 1193 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 1193</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-1193">line 1193</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="render"><span class="type-signature"></span>render<span class="signature">(context, xOffset, yOffset, color, filled)</span><span class="type-signature"></span></h4>
-    
+    <h4 class="name" id="render">
+      <span class="type-signature"></span>render(context, xOffset, yOffset, color, filled)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Render this circle for debugging purposes.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -4929,23 +4192,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -4958,6 +4221,7 @@
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -4965,10 +4229,10 @@
 
             
 
-            <td class="description last"><p>The context to render to.</p></td>
+            <td class="description param-description last"><p>The context to render to.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -4981,6 +4245,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4988,10 +4253,10 @@
 
             
 
-            <td class="description last"><p>X offset from circle's position to render at.</p></td>
+            <td class="description param-description last"><p>X offset from circle's position to render at.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5004,6 +4269,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5011,10 +4277,10 @@
 
             
 
-            <td class="description last"><p>Y offset from circle's position to render at.</p></td>
+            <td class="description param-description last"><p>Y offset from circle's position to render at.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5027,6 +4293,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -5034,10 +4301,10 @@
 
             
 
-            <td class="description last"><p>color of the debug shape to be rendered. (format is css color string).</p></td>
+            <td class="description param-description last"><p>color of the debug shape to be rendered. (format is css color string).</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5050,6 +4317,7 @@
 <span class="param-type">boolean</span>
 
 
+
             
             </td>
 
@@ -5057,22 +4325,24 @@
 
             
 
-            <td class="description last"><p>Render the shape as solid (true) or hollow (false).</p></td>
+            <td class="description param-description last"><p>Render the shape as solid (true) or hollow (false).</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -5082,57 +4352,69 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L2622" title="render on line 2622 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 2622</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-2622">line 2622</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="reportCollisionVsWorld"><span class="type-signature"></span>reportCollisionVsWorld<span class="signature">(px, py, dx, dy, obj)</span><span class="type-signature"></span></h4>
-    
+    <h4 class="name" id="reportCollisionVsWorld">
+      <span class="type-signature"></span>reportCollisionVsWorld(px, py, dx, dy, obj)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Process a world collision and apply the resulting forces.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -5140,23 +4422,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -5169,6 +4451,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5176,10 +4459,10 @@
 
             
 
-            <td class="description last"><p>The tangent velocity</p></td>
+            <td class="description param-description last"><p>The tangent velocity</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5192,6 +4475,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5199,10 +4483,10 @@
 
             
 
-            <td class="description last"><p>The tangent velocity</p></td>
+            <td class="description param-description last"><p>The tangent velocity</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5215,6 +4499,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5222,10 +4507,10 @@
 
             
 
-            <td class="description last"><p>Collision normal</p></td>
+            <td class="description param-description last"><p>Collision normal</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5238,6 +4523,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5245,10 +4531,10 @@
 
             
 
-            <td class="description last"><p>Collision normal</p></td>
+            <td class="description param-description last"><p>Collision normal</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5261,6 +4547,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5268,22 +4555,24 @@
 
             
 
-            <td class="description last"><p>Object this Circle collided with</p></td>
+            <td class="description param-description last"><p>Object this Circle collided with</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -5293,57 +4582,69 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L132" title="reportCollisionVsWorld on line 132 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 132</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-132">line 132</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+
     
 </dd>
 
         
             
 <dt>
-    <h4 class="name "
-        id="resolveCircleTile"><span class="type-signature"></span>resolveCircleTile<span class="signature">(x, y, oH, oV, obj, t)</span><span class="type-signature"> &rarr; {number}</span></h4>
-    
+    <h4 class="name" id="resolveCircleTile">
+      <span class="type-signature"></span>resolveCircleTile(x, y, oH, oV, obj, t)
+      
+    </h4>
     
 </dt>
 <dd>
-    
 
     
-    <div class="description">
+    <div class="description method-description">
         <p>Resolves tile collision.</p>
     </div>
     
 
     
+
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -5351,23 +4652,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -5380,6 +4681,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5387,10 +4689,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the x axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the x axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5403,6 +4705,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5410,10 +4713,10 @@
 
             
 
-            <td class="description last"><p>Penetration depth on the y axis.</p></td>
+            <td class="description param-description last"><p>Penetration depth on the y axis.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5426,6 +4729,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5433,10 +4737,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5449,6 +4753,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -5456,10 +4761,10 @@
 
             
 
-            <td class="description last"><p>Grid / voronoi region.</p></td>
+            <td class="description param-description last"><p>Grid / voronoi region.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5472,6 +4777,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Circle.html">Phaser.Physics.Ninja.Circle</a></span>
 
 
+
             
             </td>
 
@@ -5479,10 +4785,10 @@
 
             
 
-            <td class="description last"><p>The Circle involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Circle involved in the collision.</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -5495,6 +4801,7 @@
 <span class="param-type"><a href="Phaser.Physics.Ninja.Tile.html">Phaser.Physics.Ninja.Tile</a></span>
 
 
+
             
             </td>
 
@@ -5502,42 +4809,24 @@
 
             
 
-            <td class="description last"><p>The Tile involved in the collision.</p></td>
+            <td class="description param-description last"><p>The Tile involved in the collision.</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
 
     
-    <h5>Returns:</h5>
-    <div class="returns">
-        
-            
-    
-        <div class="returns-type">
-        
-<span class="param-type">number</span>
-
- -
-        </div>
-    
-    <div class="returns-desc param-desc">
-        <p>The result of the collision.</p>
-    </div>
-
-
-        
-    </div>
-    
-    
-    
 <dl class="details">
     
 
-    
+	
+
+	
+
+	
 
     
 
@@ -5547,34 +4836,69 @@
 
     
 
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+    
+      <a href="https://github.com/photonstorm/phaser-ce/blob/v2.8.7/src/physics/ninja/Circle.js#L310" title="resolveCircleTile on line 310 of src/physics/ninja/Circle.js">src/physics/ninja/Circle.js line 310</a>
     
 
-    
+	
 
-    
+	
 
-    
-    <dt class="tag-source">Source -
-    <a href="src_physics_ninja_Circle.js.html">physics/ninja/Circle.js</a>, <a href="src_physics_ninja_Circle.js.html#sunlight-1-line-310">line 310</a>
-    </dt>
-    
-
-    
-
-    
-
-    
+	
 </dl>
 
+
     
+
     
 
     
 
     
+
     
-       
+
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result of the collision.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
     
 </dd>
 
@@ -5590,64 +4914,62 @@
 
 
 
+</div>
+	    <footer class="footer">
 
-				</div>
 
-				<div class="clearfix"></div>
-				<footer>
-					
-					
-		<span class="copyright">
-		Phaser Copyright © 2012-2016 Photon Storm Ltd.
-		</span>
-					<br />
-					
-		<span class="jsdoc-message">
-		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
-		on Thu Mar 23 2017 14:18:10 GMT+0000 (GMT Standard Time) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
-		</span>
-				</footer>
-			</div>
+<p class="package-signature">
+  phaser-ce@2.8.7
+  is on
+  <a href="https://github.com/photonstorm/phaser-ce/releases/tag/v2.8.7">GitHub</a>
+  and
+  <a href="https://www.npmjs.com/package/phaser-ce">NPM</a>
+</p>
 
-			
-			<div class="span3">
-				<div id="toc"></div>
-			</div>
-			
-			<br clear="both">
-		</div>
 
-	</div>
-	<script src="scripts/sunlight.js"></script>
-	<script src="scripts/sunlight.javascript.js"></script>
-	<script src="scripts/sunlight-plugin.doclinks.js"></script>
-	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
-	<script src="scripts/sunlight-plugin.menu.js"></script>
-	<script src="scripts/jquery.min.js"></script>
-	<script src="scripts/jquery.scrollTo.js"></script>
-	<script src="scripts/jquery.localScroll.js"></script>
-	<script src="scripts/bootstrap-dropdown.js"></script>
-	<script src="scripts/toc.js"></script>
 
-	<script>  Sunlight.highlightAll({lineNumbers:true,  showMenu: true, enableDoclinks :true}); </script>
 
-	<script>
-		$( function () {
-			$( "#toc" ).toc( {
-				anchorName  : function(i, heading, prefix) {
-					return $(heading).attr("id") || ( prefix + i );
-				},
-				selectors   : "h1,h2,h3,h4",
-				showAndHide : false,
-				scrollTo    : 60
-			} );
-			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
-			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
 
-		} );
-	</script>
+	<p class="copyright">
+	Phaser Copyright © 2012-2016 Photon Storm Ltd.
+	</p>
 
+
+<p class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a>
 	
+		on 2017-09-12
+	
+	using a <a href="https://github.com/photonstorm/phaser-ce/tree/master/resources/docstrap-master">DocStrap template</a>.
+</p>
+
+</footer>
+
+		</div>
+    
+      <div class="toc-container hidden-xs hidden-sm">
+  <div class="toc-filter">
+    <div class="form-inline">
+    <div class="form-group">
+      <label for="filter" class="control-label">Filter</label>
+      <input type="text" class="form-control" id="filter">
+    </div>
+  </div>
+  </div>
+  <div id="toc">
+    <div class="list-group">
+      <div id="toc-insert"></div>
+    </div>
+  </div>
+</div>
+
+    
+	</div>
+</div>
+
+<script defer src="scripts/bundle.js?2017091210"></script>
+
+
 
 </body>
 </html>

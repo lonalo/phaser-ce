@@ -20,29 +20,29 @@
 * In it's most simplest form, a Phaser game can be created by providing the arguments
 * to the constructor:
 *
-* ```
+* ```javascript
 * var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create });
 * ```
 *
 * In the example above it is passing in a State object directly. You can also use the State
 * Manager to do this:
 *
-* ```
+* ```javascript
 * var game = new Phaser.Game(800, 600, Phaser.AUTO);
 * game.state.add('Boot', BasicGame.Boot);
 * game.state.add('Preloader', BasicGame.Preloader);
 * game.state.add('MainMenu', BasicGame.MainMenu);
 * game.state.add('Game', BasicGame.Game);
 * game.state.start('Boot');
-*
 * ```
+*
 * In the example above, 4 States are added to the State Manager, and Phaser is told to
 * start running the `Boot` state when it has finished initializing. There are example
 * project templates you can use in the Phaser GitHub repo, inside the `resources` folder.
 *
-* Instead of specifying arguments you can also pass a single object instead:
+* Instead of specifying arguments you can also pass {@link GameConfig a single object} instead:
 *
-* ```
+* ```javascript
 * var config = {
 *     width: 800,
 *     height: 600,
@@ -61,7 +61,7 @@
 *
 * @class Phaser.Game
 * @constructor
-* @param {number|string} [width=800] - The width of your game in game pixels. If given as a string the value must be between 0 and 100 and will be used as the percentage width of the parent container, or the browser window if no parent is given.
+* @param {number|string|GameConfig} [width=800] - The width of your game in game pixels. If given as a string the value must be between 0 and 100 and will be used as the percentage width of the parent container, or the browser window if no parent is given.
 * @param {number|string} [height=600] - The height of your game in game pixels. If given as a string the value must be between 0 and 100 and will be used as the percentage height of the parent container, or the browser window if no parent is given.
 * @param {number} [renderer=Phaser.AUTO] - Which renderer to use: Phaser.AUTO will auto-detect, Phaser.WEBGL, Phaser.WEBGL_MULTI, Phaser.CANVAS or Phaser.HEADLESS (no rendering at all).
 * @param {string|HTMLElement} [parent=''] - The DOM element into which this games canvas will be injected. Either a DOM ID (string) or the element itself.
@@ -89,7 +89,8 @@ Phaser.Game = function (width, height, renderer, parent, state, transparent, ant
     this.physicsConfig = physicsConfig;
 
     /**
-    * @property {string|HTMLElement} parent - The Games DOM parent.
+    * @property {string|HTMLElement} parent - The Game's DOM parent (or name thereof), if any, as set when the game was created. The actual parent can be found in `game.canvas.parentNode`. Setting this has no effect after {@link Phaser.ScaleManager} is booted.
+    * @readonly
     * @default
     */
     this.parent = '';
@@ -97,7 +98,7 @@ Phaser.Game = function (width, height, renderer, parent, state, transparent, ant
     /**
     * The current Game Width in pixels.
     *
-    * _Do not modify this property directly:_ use {@link Phaser.ScaleManager#setGameSize} - eg. `game.scale.setGameSize(width, height)` - instead.
+    * _Do not modify this property directly:_ use {@link Phaser.ScaleManager#setGameSize} - e.g. `game.scale.setGameSize(width, height)` - instead.
     *
     * @property {integer} width
     * @readonly
@@ -108,7 +109,7 @@ Phaser.Game = function (width, height, renderer, parent, state, transparent, ant
     /**
     * The current Game Height in pixels.
     *
-    * _Do not modify this property directly:_ use {@link Phaser.ScaleManager#setGameSize} - eg. `game.scale.setGameSize(width, height)` - instead.
+    * _Do not modify this property directly:_ use {@link Phaser.ScaleManager#setGameSize} - e.g. `game.scale.setGameSize(width, height)` - instead.
     *
     * @property {integer} height
     * @readonly
@@ -117,7 +118,7 @@ Phaser.Game = function (width, height, renderer, parent, state, transparent, ant
     this.height = 600;
 
     /**
-    * The resolution of your game. This value is read only, but can be changed at start time it via a game configuration object.
+    * The resolution of your game, as a ratio of canvas pixels to game pixels. This value is read only, but can be changed at start time it via a game configuration object.
     *
     * @property {integer} resolution
     * @readonly
@@ -144,7 +145,8 @@ Phaser.Game = function (width, height, renderer, parent, state, transparent, ant
     this.transparent = false;
 
     /**
-    * @property {boolean} antialias - Anti-alias graphics. By default scaled images are smoothed in Canvas and WebGL, set anti-alias to false to disable this globally.
+    * @property {boolean} antialias - Anti-alias graphics (as set when the Game is created). By default scaled and rotated images are smoothed in Canvas and WebGL; set `antialias` to false to disable this globally. After the game boots, use `game.stage.smoothed` instead.
+    * @readonly
     * @default
     */
     this.antialias = true;
@@ -157,8 +159,8 @@ Phaser.Game = function (width, height, renderer, parent, state, transparent, ant
     * via the `game.renderer.setTexturePriority` method.
     *
     * @property {boolean} multiTexture
+    * @readonly
     * @default
-    * @readOnly
     */
     this.multiTexture = false;
 
@@ -436,7 +438,7 @@ Phaser.Game = function (width, height, renderer, parent, state, transparent, ant
     this.fpsProblemNotifier = new Phaser.Signal();
 
     /**
-    * @property {boolean} forceSingleUpdate - Should the game loop force a logic update, regardless of the delta timer? Set to true if you know you need this. You can toggle it on the fly.
+    * @property {boolean} forceSingleUpdate - Should the game loop force a logic update, regardless of the delta timer? You can toggle it on the fly.
     */
     this.forceSingleUpdate = true;
 
@@ -495,6 +497,29 @@ Phaser.Game = function (width, height, renderer, parent, state, transparent, ant
     return this;
 
 };
+
+/**
+* A configuration object for {@link Phaser.Game}.
+*
+* @typedef {object} GameConfig
+* @property {number|string} [GameConfig.antialias=true]
+* @property {number|string} [GameConfig.height=600]
+* @property {boolean} [GameConfig.enableDebug=true] - Enable {@link Phaser.Utils.Debug}. You can gain a little performance by disabling this in production.
+* @property {number} [GameConfig.fullScreenScaleMode] - The scaling method used by the ScaleManager when in fullscreen.
+* @property {DOMElement} [GameConfig.fullScreenTarget] - The DOM element on which the Fullscreen API enter request will be invoked.
+* @property {boolean} [GameConfig.multiTexture=false] - Enable support for multiple bound Textures in WebGL. Same as `{renderer: Phaser.WEBGL_MULTI}`.
+* @property {string|HTMLElement} [GameConfig.parent='']
+* @property {object} [GameConfig.physicsConfig=null]
+* @property {boolean} [GameConfig.preserveDrawingBuffer=false] - Whether or not the contents of the stencil buffer is retained after rendering.
+* @property {number} [GameConfig.renderer=Phaser.AUTO]
+* @property {number} [GameConfig.resolution=1] - The resolution of your game, as a ratio of canvas pixels to game pixels.
+* @property {number} [GameConfig.scaleMode] - The scaling method used by the ScaleManager when not in fullscreen.
+* @property {number} [GameConfig.seed] - Seed for {@link Phaser.RandomDataGenerator}.
+* @property {object} [GameConfig.state=null]
+* @property {boolean} [GameConfig.transparent=false]
+* @property {number|string} [GameConfig.width=800]
+*/
+// Documentation stub for linking.
 
 Phaser.Game.prototype = {
 
@@ -642,7 +667,7 @@ Phaser.Game.prototype = {
         }
         else
         {
-            this.debug = { preUpdate: function () {}, update: function () {}, reset: function () {} };
+            this.debug = { preUpdate: function () {}, update: function () {}, reset: function () {}, isDisabled: true };
         }
 
         this.showDebugHeader();
@@ -668,7 +693,16 @@ Phaser.Game.prototype = {
             }
         }
 
-        this.raf.start();
+        if (this.cache.isReady)
+        {
+            this.raf.start();
+        }
+        else
+        {
+            this.cache.onReady.addOnce(function () {
+                this.raf.start();
+            }, this);
+        }
 
     },
 
@@ -706,7 +740,7 @@ Phaser.Game.prototype = {
             c++;
         }
 
-        if (this.device.chrome)
+        if (!this.device.ie) // https://developer.mozilla.org/en-US/docs/Web/API/Console/log#Browser_compatibility
         {
             var args = [
                 '%c %c %c Phaser CE v' + v + ' | Pixi.js | ' + r + ' | ' + a + '  %c %c ' + '%c http://phaser.io %c\u2665%c\u2665%c\u2665',
@@ -789,6 +823,8 @@ Phaser.Game.prototype = {
             if (this.multiTexture || this.renderType === Phaser.WEBGL_MULTI)
             {
                 PIXI.enableMultiTexture();
+
+                this.multiTexture = true;
             }
 
             this.renderType = Phaser.WEBGL;
@@ -977,7 +1013,6 @@ Phaser.Game.prototype = {
             this.sound.update();
             this.input.update();
             this.physics.update();
-            this.particles.update();
             this.plugins.update();
 
             this.stage.postUpdate();
@@ -1085,6 +1120,11 @@ Phaser.Game.prototype = {
 
         this.raf.stop();
 
+        if (this.debug.destroy)
+        {
+            this.debug.destroy();
+        }
+
         this.state.destroy();
         this.sound.destroy();
         this.scale.destroy();
@@ -1093,6 +1133,7 @@ Phaser.Game.prototype = {
         this.physics.destroy();
         this.plugins.destroy();
 
+        this.debug = null;
         this.state = null;
         this.sound = null;
         this.scale = null;
