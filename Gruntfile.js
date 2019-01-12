@@ -569,10 +569,10 @@ module.exports = function (grunt) {
         grunt.task.run('custom');
 
     });
-	
+
 	grunt.registerTask('mobile', 'Phaser for e-games mobile', function() {
 
-      grunt.option('exclude', 'gamepad,keyboard,bitmaptext,retrofont,net,arcade,ninja,p2,tilemaps,particles,creature,video,weapon');
+      grunt.option('exclude', 'gamepad,keyboard,bitmaptext,retrofont,net,arcade,ninja,tilemaps,particles,creature,video,weapon');
       grunt.option('filename', 'phaser-mobile');
       grunt.option('sourcemap', true);
       grunt.option('copy', true);
@@ -582,10 +582,10 @@ module.exports = function (grunt) {
       grunt.task.run('custom');
 
     });
-	
+
 	grunt.registerTask('egames', 'Phaser for e-games', function() {
 
-      grunt.option('exclude', 'gamepad,keyboard,bitmaptext,retrofont,net,ninja,p2,tilemaps,creature,video,weapon');
+      grunt.option('exclude', 'gamepad,keyboard,bitmaptext,retrofont,net,ninja,tilemaps,creature,video,weapon');
       grunt.option('filename', 'phaser-egames');
       grunt.option('sourcemap', true);
       grunt.option('copy', true);
